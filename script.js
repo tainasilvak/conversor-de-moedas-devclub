@@ -1,28 +1,44 @@
-// variável que vai pegar o botão no HTML
-const buttonClick = document.querySelector("button") 
+const buttonClick = document.querySelector("button")
+const currencySelected = document.querySelector(".currency-select")
 
-function cliqueiNoButton(){
-    // valor que vai ser pego quando o usuário digitar
+function cliqueiNoButton() {
     const valueToConvert = document.querySelector("input").value
-    // valor do R$ 0,00
-    const currencyReal = document.querySelector("value")
-    // valor do US$ 0.0
-    const currencyDolar = document.querySelector("value2")
-    // valor do dólar
-    const dolarToday = 5
-    // resultado da divisão entre o valor que o usuário digitou e o valor do dólar
-    const currencyToConvert = valueToConvert / dolarToday
-    // valor que o usuário digitou vai ser mostrado no R$
-    currencyReal.innerHTML = valueToConvert
-    // vai ser mostrado na tela o valor adicionado no R$
-    console.log(currencyToConvert)
+    const currencyReal = document.querySelector(".value")
+    const currencyConverted = document.querySelector(".value2")
+
+    const dolarToday = 4.91
+    const euroToday = 5.38
+
+    if (currencySelected.value == 'dolar') {
+        currencyConverted.innerHTML = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(valueToConvert / dolarToday)
+
+    }
+    if (currencySelected.value == "euro") {
+        currencyConverted.innerHTML = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(valueToConvert / euroToday)
+
+    }
+
+    currencyReal.innerHTML = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(valueToConvert)
+
 }
 
+function changeCurrency() {
+    const currencyName = document.getElementsByClassName('currency-usa')
 
+    if (currencySelected.value == 'dolar') {
+        currencyName.innerHTML = 'Dólar americano'
+    }
 
+    if (currencySelected.value == 'euro') {
+        currencyName.innerHTML = 'Euro'
+    }
 
-
-
-
-// evento que vai verificar toda vez que o botão for clicado
+}
+currencySelected.addEventListener('change', changeCurrency)
 buttonClick.addEventListener("click", cliqueiNoButton)
+
+
+
+
+
+
