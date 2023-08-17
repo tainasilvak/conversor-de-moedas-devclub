@@ -6,22 +6,22 @@ function convertValues(){
     const currencyValueToConvert = document.querySelector(".value")
     const currencyValueConverted = document.querySelector(".value2")
 
-    const dolarToday = 4.99
+    const dolarToday = 5
     const euroToday = 5.42
-    const libraToday = 6
-    const bitcoinToday = 123
+    const libraToday = 6.35
+    const bitcoinToday = 138.993
 
     if(currencySelect.value == 'dolar'){
         currencyValueConverted.innerHTML = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(inputCurrency / dolarToday)
     }
     if(currencySelect.value == 'euro'){
-        currencyValueConverted.innerHTML = new Intl.NumberFormat('de-DE', {style: 'currency', currency: 'EUR'}).format(inputCurrency / euroToday)
+        currencyValueConverted.innerHTML = new Intl.NumberFormat('en-DE', {style: 'currency', currency: 'EUR'}).format(inputCurrency / euroToday)
     }
     if(currencySelect.value == 'libra'){
-        currencyValueConverted.innerHTML = new Intl.NumberFormat('en-UK', {style: 'currency', currency: 'GPB'}).format(inputCurrency / libraToday)
+        currencyValueConverted.innerHTML = new Intl.NumberFormat('en-GB', {style: 'currency', currency: 'GBP'}).format(inputCurrency / libraToday)
     }
     if(currencySelect.value == 'bitcoin'){
-        currencyValueConverted.innerHTML = new Intl.NumberFormat('de-DE', {style: 'currency', currency: 'BTC'}).format(inputCurrency / bitcoinToday)
+        currencyValueConverted.innerHTML = new Intl.NumberFormat('de-DE', {style: 'currency', currency: 'XBT'}).format(inputCurrency / bitcoinToday)
     }
 
     currencyValueToConvert.innerHTML = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(inputCurrency)
